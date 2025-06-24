@@ -21,8 +21,8 @@ public class LogicaClasificacion {
         for(int i=0;i<texto.length();i++){
             pila.push(texto.charAt(i));
         }
-
-       StringBuilder cadenaInvertida = new StringBuilder();
+        
+        StringBuilder cadenaInvertida = new StringBuilder();
 
         while (!pila.isEmpty()) {
             cadenaInvertida.append(pila.pop()); 
@@ -104,11 +104,14 @@ public class LogicaClasificacion {
     public List<Integer> clasificarPorParidad(LinkedList<Integer> original) {
         LinkedList<Integer> pares=new LinkedList();
         LinkedList<Integer> impares=new LinkedList();
-
-        while(!original.isEmpty()){
-            
+        for(int numero:original){
+            if(numero%2==0){
+                pares.add(numero);
+            }else{
+                impares.add(numero);
+            }
         }
-
-        return new ArrayList<>();
+        pares.addAll(impares);
+        return pares;
     }
 }
